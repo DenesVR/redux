@@ -38,7 +38,7 @@ export const getCocktails = str => async (dispatch, getState) => {
         getState().cocktailState.cocktail
       }`
     );
-    dispatch(cocktailFetchSuccess(response.data.results));
+    dispatch(cocktailFetchSuccess(response.data.drinks));
   } catch (error) {
     dispatch(cocktailFetchFail());
   }
@@ -46,14 +46,23 @@ export const getCocktails = str => async (dispatch, getState) => {
 
 // REDUCER
 
-const movieReducer = (state = initialState, { type, payload }) => {
+const movieReducer = (state = initialState, {
+  type,
+  payload
+}) => {
   switch (type) {
     case COCKTAIL_FETCH_START:
-      return { ...state, cocktail: payload, loading: true, error: false };
+      return {
+        ...state, cocktail: payload, loading: true, error: false
+      };
     case COCKTAIL_FETCH_SUCCESS:
-      return { ...state, loading: false, error: false, cocktails: payload };
+      return {
+        ...state, loading: false, error: false, cocktails: payload
+      };
     case COCKTAIL_FETCH_FAIL:
-      return { ...state, loading: false, error: true };
+      return {
+        ...state, loading: false, error: true
+      };
     default:
       return state;
   }
