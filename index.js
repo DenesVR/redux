@@ -49,7 +49,7 @@ function cocktailRender() {
     }
     if (cocktails) {
         document.getElementById("cocktailgrid").innerHTML = cocktails
-            .map((cocktail) => `<li>${cocktail.title}</li>`)
+            .map((cocktail) => `<li>${cocktail.strDrink}</li>`)
             .join("");
     } else {
         document.getElementById("cocktailgrid").style.display = "none";
